@@ -21,9 +21,9 @@ Copyright (C) 2014 - ITESM
 
 Authors:
 
-   ITESM representatives
-   Ing. Martha Sordia Salinas <msordia@itesm.mx>	
-   Ing. Mario Isidro de la Fuente Martínez<mario.delafuente@itesm.mx>
+	ITESM representatives
+	Ing. Martha Sordia Salinas <msordia@itesm.mx>	
+	Ing. Mario Isidro de la Fuente Martínez<mario.delafuente@itesm.mx>
 
 	ITESM students
 	Adriana Cortés Soto adri925@gmail.com	
