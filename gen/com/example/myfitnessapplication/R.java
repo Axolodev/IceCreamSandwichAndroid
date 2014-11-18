@@ -27,7 +27,6 @@ public final class R {
         public static final int editText1=0x7f060007;
         public static final int editText2=0x7f060006;
         public static final int fecha=0x7f06001f;
-        public static final int hora=0x7f060021;
         public static final int imageButton1=0x7f060004;
         public static final int imageButton2=0x7f060005;
         public static final int imageView1=0x7f06000e;

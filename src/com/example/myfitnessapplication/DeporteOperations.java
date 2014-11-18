@@ -1,10 +1,14 @@
 package com.example.myfitnessapplication;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ParseException;
 
 
 public class DeporteOperations {
@@ -16,7 +20,6 @@ public class DeporteOperations {
 	public static final String COLUMN_TIEMPO="tiempo";
 	public static final String COLUMN_FECHA="fecha";
 	public static final String COLUMN_CALORIAS="calorias";
-	public static final String COLUMN_HORA="hora";
 	public DeporteOperations(Context context){
 		dbHelper=new DeporteHelper(context);
 	}
@@ -24,12 +27,47 @@ public class DeporteOperations {
 		db=dbHelper.getWritableDatabase();
 	}
 	
-	public void addDeporte(Deporte pelicula){
+	public void addDeporte(Deporte deporte){
 		ContentValues values=new ContentValues();
 		//values.put(COLUMN_NAME, pelicula.getName());
 		//values.put(COLUMN_RANKING, pelicula.getRanking());
+		values.put(COLUMN_DEPORTE, deporte.getDeporte());
+		values.put(COLUMN_FECHA, deporte.getFecha());
+		values.put(COLUMN_CALORIAS, deporte.getCalorias());
+		values.put(COLUMN_TIEMPO, deporte.getTiempo());
 		db.insert(TABLE_DEPORTES, null, values);
 		
+	}
+	
+	public Deporte findDeporte(String nombreDeporte){
+		String query= "Select * FROM "+TABLE_DEPORTES+" WHERE "+COLUMN_DEPORTE+" = \""+nombreDeporte+"\"" ;
+		Cursor cursor=db.rawQuery(query, null);
+		Deporte deporte=new Deporte();
+		if (cursor.moveToFirst()){
+			cursor.moveToFirst();
+			deporte.setID(Integer.parseInt(cursor.getString(0)));
+			deporte.setDeporte(cursor.getString(1));
+			String datestr = null;
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		    
+		    try {
+		    	final Date dt = (Date) dateFormat.parse(cursor.getString(2));
+		    	datestr = dateFormat.format(dt);
+		    } catch (Exception e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		    deporte.setFecha(datestr);
+			
+			deporte.setCalorias(Double.parseDouble(cursor.getString(3)));
+			deporte.setTiempo(Double.parseDouble(cursor.getString(2)));
+			cursor.close();
+		}
+		else{
+			deporte=null;
+		}
+		
+		return deporte;
 	}
 
 }

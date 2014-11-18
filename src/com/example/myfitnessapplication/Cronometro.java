@@ -12,11 +12,6 @@ import android.widget.Chronometer;
 
 public class Cronometro extends Activity {
 
-	
-/*	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cronometro);
-	}*/
 	Chronometer focus;
 	Button iniciar, detener, reiniciar, guardar, playlist;
 	long timeWhenStopped = 0;

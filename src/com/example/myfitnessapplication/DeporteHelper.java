@@ -27,9 +27,8 @@ public class DeporteHelper extends SQLiteOpenHelper{
 				"("+ COLUMN_ID+ " INTEGER PRIMARY KEY,"+
 						COLUMN_DEPORTE +" TEXT,"+
 						COLUMN_FECHA +" DATETIME,"+
-						COLUMN_HORA +" DATETIME,"+
 						COLUMN_CALORIAS +" DOUBLE,"+
-				COLUMN_TIEMPO +" INTEGER"+");";
+				COLUMN_TIEMPO +" DOUBLE"+");";
 				db.execSQL(CREATE_DEPORTES_TABLE);
 		
 	}
