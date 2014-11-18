@@ -22,10 +22,11 @@ Copyright (C) 2014 - ITESM
 Authors:
 
    ITESM representatives
-	Ing. Martha Sordia Salinas <msordia@itesm.mx>
-	Ing. Mario Isidro de la Fuente Martínez<mario.delafuente@itesm.mx>
-   ITESM students
-   Adriana Cortés Soto adri925@gmail.com
-   Roberto Ildefonso Ruiz Reyes manuelcarrilloruiz@gmail.com
-   Manuel Alejandro Carrillo Ruiz robildruirey@hotmail.com
+   Ing. Martha Sordia Salinas <msordia@itesm.mx>	
+   Ing. Mario Isidro de la Fuente Martínez<mario.delafuente@itesm.mx>
+
+	ITESM students
+	Adriana Cortés Soto adri925@gmail.com	
+	Roberto Ildefonso Ruiz Reyes manuelcarrilloruiz@gmail.com
+	Manuel Alejandro Carrillo Ruiz robildruirey@hotmail.com
    
