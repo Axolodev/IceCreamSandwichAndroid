@@ -1,6 +1,7 @@
 package com.example.myfitnessapplication;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,19 +14,31 @@ import android.widget.ListView;
 public class Historial extends Activity {
 	EditText busca;
 	ListView lista;
+	ListViewAdapter miAdaptador;
 	DeporteOperations dao;
 	Button buscar;
-	private ArrayList<String> results = new ArrayList<String>();
+	List<Deporte> deportes;
+	ArrayList<String> results = new ArrayList<String>();
 	private String tableName = DeporteHelper.TABLE_DEPORTES;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_historial);
+		lista=(ListView)findViewById(R.id.listView1);
 		dao=new DeporteOperations(this);
 		dao.open();
-		lista=(ListView)findViewById(R.id.listView1);
+		deportes=new ArrayList<Deporte>();
 		buscar=(Button)findViewById(R.id.button1);
 		busca=(EditText)findViewById(R.id.editText1);
+		
+		for(int i = 1; i<dao.numRows()+1;i++){
+			Deporte equipo = dao.findEquipo(i);
+			if (equipo!=null)deportes.add(equipo);
+			
+			}
+		miAdaptador = new ListViewAdapter(this.getBaseContext(),R.layout.row,deportes);
+		lista.setAdapter(miAdaptador);
+		
 		OnClickListener registro= new OnClickListener(){
 			public void onClick(View v){
 				searchDeporte(v);

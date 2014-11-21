@@ -1,40 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LinearLayout1"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    tools:context="${relativePackage}.${activityClass}" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/deporte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Deporte" />
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/calorias"
+            android:id="@+id/Deporte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calorias" />
+            android:text="@string/deporte_tag" />
 
         <TextView
-            android:id="@+id/fecha"
+            android:id="@+id/deporte_val"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha" />
+            android:text="TextView" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/duracion"
+            android:id="@+id/Calorias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Duracion" />
+            android:text="@string/calorias_tag" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/calorias_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </TableRow>
 
-</LinearLayout>
+    <TableRow
+        android:id="@+id/TableRow02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/Fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fecha_tag" />
+
+        <TextView
+            android:id="@+id/fecha_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/Duracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/duracion_tag" />
+
+        <TextView
+            android:id="@+id/duracion_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </TableRow>
+
+</TableLayout>

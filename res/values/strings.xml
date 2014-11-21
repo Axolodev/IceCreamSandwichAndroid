@@ -10,5 +10,9 @@
     <string name="title_activity_medicion">Medicion</string>
     <string name="title_activity_playlist">Playlist</string>
     <string name="title_activity_resultado">Resultado</string>
+    <string name="duracion_tag">Duracion</string>
+    <string name="deporte_tag">Deporte</string>
+    <string name="fecha_tag">Fecha</string>
+    <string name="calorias_tag">Calorias</string>
 
 </resources>

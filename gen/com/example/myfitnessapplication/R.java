@@ -14,19 +14,26 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f06001b;
+        public static final int Calorias=0x7f060020;
+        public static final int Deporte=0x7f06001d;
+        public static final int Duracion=0x7f060026;
+        public static final int Fecha=0x7f060023;
+        public static final int TableLayout1=0x7f06001b;
+        public static final int TableRow01=0x7f06001f;
+        public static final int TableRow02=0x7f060022;
+        public static final int TableRow03=0x7f060025;
         public static final int button1=0x7f060003;
         public static final int button2=0x7f060002;
         public static final int button3=0x7f06000b;
         public static final int button4=0x7f060009;
         public static final int button5=0x7f06000a;
-        public static final int calorias=0x7f06001d;
+        public static final int calorias_val=0x7f060021;
         public static final int chronometer1=0x7f060008;
-        public static final int deporte=0x7f06001c;
-        public static final int duracion=0x7f06001f;
+        public static final int deporte_val=0x7f06001e;
+        public static final int duracion_val=0x7f060027;
         public static final int editText1=0x7f060007;
         public static final int editText2=0x7f060006;
-        public static final int fecha=0x7f06001e;
+        public static final int fecha_val=0x7f060024;
         public static final int imageButton1=0x7f060004;
         public static final int imageButton2=0x7f060005;
         public static final int imageView1=0x7f06000d;
@@ -40,6 +47,7 @@ public final class R {
         public static final int radioButton6=0x7f060014;
         public static final int radioButton7=0x7f060015;
         public static final int radioDeporte=0x7f06000e;
+        public static final int tableRow1=0x7f06001c;
         public static final int textView1=0x7f060000;
         public static final int textView2=0x7f060001;
         public static final int textView3=0x7f060016;
@@ -60,6 +68,10 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040000;
+        public static final int calorias_tag=0x7f04000c;
+        public static final int deporte_tag=0x7f04000a;
+        public static final int duracion_tag=0x7f040009;
+        public static final int fecha_tag=0x7f04000b;
         public static final int hello_world=0x7f040001;
         public static final int title_activity_configuracion=0x7f040003;
         public static final int title_activity_cronometro=0x7f040005;

@@ -3,6 +3,7 @@ package com.example.myfitnessapplication;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -69,6 +70,37 @@ public class DeporteOperations {
 		
 		return deporte;
 	}
+
+
+	public Deporte findEquipo(int id) {
+		String query = "Select * FROM " + TABLE_DEPORTES + " WHERE "
+				+ COLUMN_ID + " = \"" + id + "\"";
+		Cursor cursor = db.rawQuery(query, null);
+		Deporte equipo = new Deporte();
+		if (cursor.moveToFirst()) {
+			cursor.moveToFirst();
+			equipo.setID(Integer.parseInt(cursor.getString(0)));
+			equipo.setDeporte(cursor.getString(1));
+			equipo.setFecha(cursor.getString(2));
+			equipo.setCalorias(Double.parseDouble(cursor.getString(3)));
+			equipo.setTiempo(Double.parseDouble(cursor.getString(4)));
+			cursor.close();
+		} else {
+			equipo = null;
+		}
+		return equipo;
+	}
+	
+	
+	
+	public int numRows() {
+		String query = "SELECT Count(*) FROM " + TABLE_DEPORTES;
+		Cursor cursor = db.rawQuery(query, null);
+		cursor.moveToFirst();
+		return Integer.parseInt(cursor.getString(0));
+		}
+
+
 
 }
 /*
