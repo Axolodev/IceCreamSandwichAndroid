@@ -16,7 +16,7 @@ public class DeporteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_CALORIAS="calorias";
 	public static final String COLUMN_HORA="hora";
 	public DeporteHelper(Context context) {
-		super(context,"DATABASE_NAME",null,DATABASE_VERSION);
+		super(context,DATABASE_NAME,null,DATABASE_VERSION);
 		// TODO Auto-generated constructor stub
 	}
 	@Override

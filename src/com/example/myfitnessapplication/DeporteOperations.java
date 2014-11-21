@@ -48,7 +48,7 @@ public class DeporteOperations {
 			deporte.setID(Integer.parseInt(cursor.getString(0)));
 			deporte.setDeporte(cursor.getString(1));
 			String datestr = null;
-		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		    
 		    try {
 		    	final Date dt = (Date) dateFormat.parse(cursor.getString(2));

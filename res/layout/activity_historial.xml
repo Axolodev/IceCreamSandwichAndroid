@@ -16,21 +16,22 @@
         <requestFocus />
     </EditText>
 
-    <SearchView
-        android:id="@+id/searchView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="33dp" >
-    </SearchView>
-
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/searchView1" >
+        android:layout_below="@+id/button1" >
+
     </ListView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:text="Buscar" />
 
 </RelativeLayout>

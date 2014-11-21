@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class Medicion extends Activity {
 
@@ -32,6 +33,7 @@ public class Medicion extends Activity {
 				int selectedId = deporte.getCheckedRadioButtonId();
 				actividad = (RadioButton) findViewById(selectedId);
 				deporteSeleccionado= actividad.getText().toString();
+				Toast.makeText(getApplicationContext(), "deporte:" + deporteSeleccionado, Toast.LENGTH_LONG).show();
 				Intent dep=new Intent(Medicion.this, Cronometro.class);
 				dep.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				dep.putExtra("deporte", deporteSeleccionado);

@@ -18,6 +18,12 @@ public class Deporte {
 		this.calorias=calorias;
 		this.tiempo=tiempo;
 	}
+	public Deporte(String deporte, String fecha, double calorias, double tiempo){
+		this.deporte=deporte;
+		this.fecha=fecha;
+		this.calorias=calorias;
+		this.tiempo=tiempo;
+	}
 	public void setID(int id){
 		this.id=id;
 	}
