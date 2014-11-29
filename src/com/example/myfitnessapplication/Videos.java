@@ -11,5 +11,10 @@ public class Videos extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_videos);
+		VideoOperations dao;
+		dao=new VideoOperations(this);
+		dao.open();
+		Video video=new Video("1","2", "3");
+		dao.addVideo(video);
 	}
 }
