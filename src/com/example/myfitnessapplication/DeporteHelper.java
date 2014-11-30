@@ -16,12 +16,10 @@ public class DeporteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_CALORIAS="calorias";
 	public static final String COLUMN_HORA="hora";
 	public DeporteHelper(Context context) {
-		super(context,DATABASE_NAME,null,DATABASE_VERSION);
-		// TODO Auto-generated constructor stub
+		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
 		String CREATE_DEPORTES_TABLE
 		="CREATE TABLE " + TABLE_DEPORTES+
 				"("+ COLUMN_ID+ " INTEGER PRIMARY KEY,"+
@@ -35,7 +33,6 @@ public class DeporteHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
 		Log.w(DeporteHelper.class.getName(),"Upgrading database from version "+ oldVersion+"to"+newVersion+", which will destroy all old data");
 		db.execSQL("DROP TABLE IF EXISTS" + TABLE_DEPORTES);
 		onCreate(db);

@@ -1,6 +1,5 @@
 package com.example.myfitnessapplication;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -10,47 +9,73 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import auxiliares.AuxiliarHistorial;
 
 public class Historial extends Activity {
-	EditText busca;
-	ListView lista;
-	ListViewAdapter miAdaptador;
-	DeporteOperations dao;
-	Button buscar;
-	List<Deporte> deportes;
-	ArrayList<String> results = new ArrayList<String>();
-	private String tableName = DeporteHelper.TABLE_DEPORTES;
+	private EditText etBusca;
+	private ListView lvLista;
+	private ListViewAdapter miAdaptador;
+
+	private Button buBuscar;
+
+	private AuxiliarHistorial auxiliar;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_historial);
-		lista=(ListView)findViewById(R.id.listView1);
-		dao=new DeporteOperations(this);
-		dao.open();
-		deportes=new ArrayList<Deporte>();
-		buscar=(Button)findViewById(R.id.button1);
-		busca=(EditText)findViewById(R.id.editText1);
-		
-		for(int i = 1; i<dao.numRows()+1;i++){
-			Deporte equipo = dao.findEquipo(i);
-			if (equipo!=null)deportes.add(equipo);
-			
+
+		init();
+
+		initListeners();
+	}
+
+	/**
+	 * Metodo utilizado para inicializar variables de la actividad
+	 */
+	private void init() {
+		lvLista = (ListView) findViewById(R.id.listView1);
+
+		buBuscar = (Button) findViewById(R.id.button1);
+		etBusca = (EditText) findViewById(R.id.editText1);
+
+		auxiliar = new AuxiliarHistorial(this);
+
+		setContent(auxiliar.getDefaultView());
+	}
+
+	/**
+	 * Metodo usado para inicializar listeners de la actividad
+	 */
+	private void initListeners() {
+		buBuscar.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				String deporteName = etBusca.getText().toString();
+
+				if (deporteName.matches("")) {
+					setContent(auxiliar.getDefaultView());
+				} else {
+					List<Deporte> temporal = auxiliar.cargaDeporte(deporteName);
+					if (temporal != null) {
+						setContent(temporal);
+					}
+				}
 			}
-		miAdaptador = new ListViewAdapter(this.getBaseContext(),R.layout.row,deportes);
-		lista.setAdapter(miAdaptador);
-		
-		OnClickListener registro= new OnClickListener(){
-			public void onClick(View v){
-				searchDeporte(v);
-			}};
+		});
 	}
-	public void searchDeporte(View view){
-		String name=busca.getText().toString();
-		Deporte deporte= dao.findDeporte(name);
-		/*
-		 * 			peliculaID.setText(String.valueOf(pelicula.getID()));
-			quantityBox.setText(String.valueOf(pelicula.getRanking()));
-		 * 
-		 * */
+
+	/**
+	 * Metodo utilizado para definir el contenido que tendrá la ListView
+	 * 
+	 * @param myList
+	 *            es el contenido que tendrá la ListView
+	 */
+	private void setContent(List<Deporte> myList) {
+		miAdaptador = new ListViewAdapter(this.getBaseContext(), R.layout.row,
+				myList);
+		lvLista.setAdapter(miAdaptador);
 	}
+
 }

@@ -38,6 +38,7 @@ public class Medicion extends Activity {
 				dep.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				dep.putExtra("deporte", deporteSeleccionado);
 				startActivity(dep);
+				finish();
 				
 			}
 			

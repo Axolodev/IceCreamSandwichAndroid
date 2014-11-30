@@ -18,5 +18,8 @@
     <string name="general">Resumen</string>
     <string name="tiempo">Tiempo Total</string>
     <string name="calorias_quemadas">Calorias Quemadas</string>
+    <string name="facebook_app_id">409671882516646"</string>
+    <string name="title_facebook_login">myFacebookLogin</string>
+
 
 </resources>
