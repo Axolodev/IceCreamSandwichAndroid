@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/calorias_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calorias_tag_id2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/hello_world"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/general_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="@string/general"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/fecha_tag_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tiempo_id2"
+        android:layout_below="@+id/general_id2"
+        android:text="@string/hello_world"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tiempo_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calorias_id2"
+        android:layout_below="@+id/fecha_tag_id2"
+        android:layout_marginTop="85dp"
+        android:text="@string/hello_world"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tiempo_tag_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tiempo_id2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:text="@string/tiempo"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/calorias_tag_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tiempo_id2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="@string/calorias_quemadas"
+        android:textSize="30sp" />
+
+</RelativeLayout>

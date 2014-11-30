@@ -14,5 +14,9 @@
     <string name="deporte_tag">Deporte</string>
     <string name="fecha_tag">Fecha</string>
     <string name="calorias_tag">Calorias</string>
+    <string name="title_activity_resumen">ResumenActivity</string>
+    <string name="general">Resumen</string>
+    <string name="tiempo">Tiempo Total</string>
+    <string name="calorias_quemadas">Calorias Quemadas</string>
 
 </resources>

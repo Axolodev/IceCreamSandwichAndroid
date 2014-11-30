@@ -50,6 +50,10 @@
             android:name=".Resultado"
             android:label="@string/title_activity_resultado" >
         </activity>
+        <activity
+            android:name=".ResumenActivity"
+            android:label="@string/title_activity_resumen" >
+        </activity>
     </application>
 
 </manifest>
