@@ -57,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Menú Principal" />
+        android:text="Menú Principal" 
+        />
 
     <TextView
         android:id="@+id/textView1"
@@ -70,22 +71,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/buShareFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView5"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_toRightOf="@+id/textView2"
-        android:src="@drawable/ic_launcher" />
-
+        android:layout_marginTop="78dp"
+        android:layout_toRightOf="@+id/textView5"
+        android:background="@null"
+        android:src="@drawable/share_facebook" 
+        android:contentDescription="@null"/>
 
 </RelativeLayout>

@@ -14,5 +14,7 @@
     <string name="deporte_tag">Deporte</string>
     <string name="fecha_tag">Fecha</string>
     <string name="calorias_tag">Calorias</string>
+    <string name="facebook_app_id">409671882516646"</string>
+    <string name="title_facebook_login">myFacebookLogin</string>
 
 </resources>
