@@ -1,5 +1,9 @@
 package activities;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myfitnessapplication.R;
 import com.facebook.UiLifecycleHelper;
@@ -16,11 +21,16 @@ import com.facebook.widget.FacebookDialog;
 
 public class Resultado extends Activity {
 
-	private String deporteS;
-	private Long tiempoS;
-	private Button buMenu;
-	private Double calori;
-	private TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
+	String deporteS;
+	Long tiempoS,tiempomin,tiempohr;
+        Button buMenu;
+	//private Double calori;
+	//Button menu;
+	Long calori=(long) 1;
+	TextView calorias,deporte,tiempo;//3 tiempo,4 calorias,6 deporte
+
+
+	//TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
 														// deporte
 	private UiLifecycleHelper uiHelper; // Usado para compartir datos en
 										// Facebook
@@ -32,7 +42,7 @@ public class Resultado extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_resultado);
 		buMenu = (Button) findViewById(R.id.button1);
-		tvCalorias = (TextView) findViewById(R.id.textView4);
+		/*tvCalorias = (TextView) findViewById(R.id.textView4);
 		tvDeporte = (TextView) findViewById(R.id.textView6);
 		tvTiempo = (TextView) findViewById(R.id.textView3);
 		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
@@ -48,7 +58,82 @@ public class Resultado extends Activity {
 			tvDeporte.setText(deporteS);
 			String tiempos = String.valueOf(tiempoS);
 			tvTiempo.setText(tiempos);
+		}*/
+calorias=(TextView)findViewById(R.id.textView4);
+		deporte=(TextView)findViewById(R.id.textView6);
+		String deporteF;
+		tiempo=(TextView)findViewById(R.id.textView3);
+		StringBuffer stringBuffer = new StringBuffer();    
+        try {  
+            //Attaching BufferedReader to the FileInputStream by the help of InputStreamReader  
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(  
+                    openFileInput("deporteSel")));  
+            String inputString;  
+            //Reading data line by line and storing it into the stringbuffer                
+            while ((inputString = inputReader.readLine()) != null) {  
+                stringBuffer.append(inputString + "\n");  
+            }  
+              
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        deporteF=stringBuffer.toString();
+		
+		Bundle datos=getIntent().getExtras();
+		if (datos!=null){
+			deporteS=datos.getString("deporte");
+			tiempoS=datos.getLong("segundos");
+			tiempomin=datos.getLong("minutos");
+			tiempohr=datos.getLong("horas");
+			
+			String tiempos=String.valueOf(tiempoS);
+			String hrs=String.valueOf(tiempohr);
+			String min=String.valueOf(tiempomin);
+			tiempo.setText(hrs+":"+min+":"+tiempos); 
 		}
+		deporte.setText(deporteF);
+		Toast.makeText(getApplicationContext(), "deporte:" + deporteF, Toast.LENGTH_LONG).show();
+	
+	if (deporteF.equals("Spinning")){
+		
+		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .053);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+	}
+	else if(deporteF.equals("Caminar")){
+		Toast.makeText(getApplicationContext(), "tiempo1:" + calori, Toast.LENGTH_LONG).show();
+		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .062);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	else if (deporteF.equals("Baloncesto")){
+		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .045);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	else if(deporteF.equals("Futbol")){
+		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .061);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	
+	else{
+		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .142);
+	}
+		String caloriasF=String.valueOf(calori);
+		calorias.setText(caloriasF);
+		/*menu.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				Intent medi=new Intent(Resultado.this, MainActivity.class);
+				medi.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				medi.putExtra("deporte", deporteS);
+				medi.putExtra("calorias", calori);
+				medi.putExtra("tiempo", tiempoS);
+				
+				startActivity(medi);
+			}
+		});*/
+
+
 
 		uiHelper = new UiLifecycleHelper(this, null);
 		uiHelper.onCreate(savedInstanceState);
@@ -64,14 +149,17 @@ public class Resultado extends Activity {
 
 		buMenu.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				/**
-				 * Intent medi = new Intent(Resultado.this, MainActivity.class);
-				 * medi.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				 * medi.putExtra("deporte", deporteS); medi.putExtra("calorias",
-				 * calori); medi.putExtra("tiempo", tiempoS);
-				 * 
-				 * startActivity(medi);
-				 **/
+
+
+				Intent medi=new Intent(Resultado.this, MainActivity.class);
+				medi.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				medi.putExtra("deporte", deporteS);
+				medi.putExtra("calorias", calori);
+				medi.putExtra("tiempo", tiempoS);
+				
+				startActivity(medi);
+
+				
 
 				finish();
 			}

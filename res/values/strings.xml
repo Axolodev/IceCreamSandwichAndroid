@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">MyFitnessApplication</string>
@@ -27,7 +27,13 @@
     <string name="altura_tag">Altura:</string>
     <string name="buscar_videos">Buscar Videos</string>
     <string name="guardar_but_tag">Guardar</string>
+
     <string name="title_activity_lista_videos">Lista de videos</string>
     <string name="title_activity_player">Player</string>
+
+   <string name="action_settings">Settings</string>   
+   <string name="inital_Time">0 min, 0 sec</string>
+
+
 
 </resources>

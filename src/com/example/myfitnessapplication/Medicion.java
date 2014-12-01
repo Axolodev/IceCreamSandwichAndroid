@@ -1,10 +1,15 @@
 package com.example.myfitnessapplication;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import activities.Cronometro;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.content.Context;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -30,7 +35,21 @@ public class Medicion extends Activity {
 				// TODO Auto-generated method stub
 				int selectedId = deporte.getCheckedRadioButtonId();
 				actividad = (RadioButton) findViewById(selectedId);
-				deporteSeleccionado= actividad.getText().toString();
+				//deporteSeleccionado= actividad.getText().toString();
+if (actividad!=null){
+				deporteSeleccionado= actividad.getText().toString();}
+				else {
+					deporteSeleccionado="Correr";
+				}
+				FileOutputStream fos;  
+                try {  
+                 fos = openFileOutput("deporteSel", Context.MODE_PRIVATE);  
+                 //default mode is PRIVATE, can be APPEND etc.  
+                 fos.write(deporteSeleccionado.getBytes());
+                 fos.close();  
+                }
+                catch (FileNotFoundException e) {e.printStackTrace();}  
+                catch (IOException e) {e.printStackTrace();}  
 				Toast.makeText(getApplicationContext(), "deporte: " + deporteSeleccionado, Toast.LENGTH_LONG).show();
 				Intent dep=new Intent(Medicion.this, Cronometro.class);
 				dep.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
