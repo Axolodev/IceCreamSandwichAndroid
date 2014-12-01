@@ -1,10 +1,12 @@
-package com.example.myfitnessapplication;
+package activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.myfitnessapplication.Deporte;
+import com.example.myfitnessapplication.DeporteOperations;
+import com.example.myfitnessapplication.R;
 
 public class ResumenActivity extends Activity {
 

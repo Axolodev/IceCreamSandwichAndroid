@@ -1,6 +1,5 @@
 package com.example.myfitnessapplication;
 
-import java.sql.Date;
 
 public class Deporte {
 	private int id;

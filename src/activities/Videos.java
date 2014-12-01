@@ -1,6 +1,4 @@
-package com.example.myfitnessapplication;
-
-
+package activities;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +11,10 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.example.myfitnessapplication.R;
+import com.example.myfitnessapplication.Video;
+import com.example.myfitnessapplication.VideoOperations;
 
 
 public class Videos extends Activity {

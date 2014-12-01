@@ -1,4 +1,4 @@
-package com.example.myfitnessapplication;
+package activities;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,6 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+
+import com.example.myfitnessapplication.Deporte;
+import com.example.myfitnessapplication.DeporteOperations;
+import com.example.myfitnessapplication.Preferences;
+import com.example.myfitnessapplication.R;
 
 public class Cronometro extends Activity {
 	Chronometer focus;
@@ -41,8 +46,8 @@ public class Cronometro extends Activity {
 		playlist = (Button) findViewById(R.id.button5);
 		//LISTO PARA QUE USEN LOS DATOS EN EL CALCULO:
 		//
-		peso= Prefereces.getPeso(this);
-		altura= Prefereces.getAltura(this);
+		peso= Preferences.getPeso(this);
+		altura= Preferences.getAltura(this);
 		//LOS VALORES DEFAULT SE PUEDEN MODIFICAR EN LA CLASE Prefereces.java
 		//
 		

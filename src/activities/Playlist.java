@@ -1,4 +1,4 @@
-package com.example.myfitnessapplication;
+package activities;
 
 import java.io.IOException;
 
@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.myfitnessapplication.R;
 
 public class Playlist extends Activity {
 	private String[] mAudioPath;

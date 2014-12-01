@@ -1,4 +1,4 @@
-package com.example.myfitnessapplication;
+package activities;
 
 
 import android.app.Activity;
@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.myfitnessapplication.Medicion;
+import com.example.myfitnessapplication.R;
 
 public class MainActivity extends Activity {
 

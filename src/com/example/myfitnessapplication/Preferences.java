@@ -3,7 +3,7 @@ package com.example.myfitnessapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class Prefereces {
+public class Preferences {
 
     private static SharedPreferences getPrefs(Context context) {
         return context.getSharedPreferences("myprefs", 0);

@@ -1,4 +1,4 @@
-package com.example.myfitnessapplication;
+package activities;
 
 import java.util.List;
 
@@ -11,12 +11,18 @@ import android.widget.EditText;
 import android.widget.ListView;
 import auxiliares.AuxiliarHistorial;
 
+import com.example.myfitnessapplication.Deporte;
+import com.example.myfitnessapplication.ListViewAdapter;
+import com.example.myfitnessapplication.R;
+
 public class Historial extends Activity {
 	private EditText etBusca;
 	private ListView lvLista;
 	private ListViewAdapter miAdaptador;
 
 	private Button buBuscar;
+	private Button buRegresar;
+	private Button buAvanzar;
 
 	private AuxiliarHistorial auxiliar;
 
@@ -41,7 +47,12 @@ public class Historial extends Activity {
 
 		auxiliar = new AuxiliarHistorial(this);
 
-		setContent(auxiliar.getDefaultView());
+		auxiliar.getDefaultView();
+
+		setContent(auxiliar.getContent());
+		
+		buAvanzar = (Button) findViewById(R.id.buHistorialAvanzar);
+		buRegresar = (Button) findViewById(R.id.buHistorialRegresar);
 	}
 
 	/**
@@ -55,15 +66,40 @@ public class Historial extends Activity {
 				String deporteName = etBusca.getText().toString();
 
 				if (deporteName.matches("")) {
-					setContent(auxiliar.getDefaultView());
+					auxiliar.getDefaultView();
+					setContent(auxiliar.getContent());
 				} else {
-					List<Deporte> temporal = auxiliar.cargaDeporte(deporteName);
+					auxiliar.cargaDeporte(deporteName);
+					List<Deporte> temporal = auxiliar.getContent();
 					if (temporal != null) {
 						setContent(temporal);
 					}
 				}
 			}
 		});
+
+		buAvanzar.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				if (auxiliar.puedeAvanzar()) {
+					auxiliar.avanzar();
+					setContent(auxiliar.getContent());
+				}
+			}
+		});
+
+		buRegresar.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				if (auxiliar.puedeRegresar()) {
+					auxiliar.regresar();
+					setContent(auxiliar.getContent());
+				}
+			}
+		});
+
 	}
 
 	/**

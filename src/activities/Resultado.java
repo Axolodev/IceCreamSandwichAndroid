@@ -1,4 +1,4 @@
-package com.example.myfitnessapplication;
+package activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.myfitnessapplication.R;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.FacebookDialog;
 

@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,19 +24,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Videos"
+            android:name="activities.Videos"
             android:label="@string/title_activity_videos" >
         </activity>
         <activity
-            android:name=".Configuracion"
+            android:name="activities.Configuracion"
             android:label="@string/title_activity_configuracion" >
         </activity>
         <activity
-            android:name=".Historial"
+            android:name="activities.Historial"
             android:label="@string/title_activity_historial" >
         </activity>
         <activity
-            android:name=".Cronometro"
+            android:name="activities.Cronometro"
             android:label="@string/title_activity_cronometro" >
         </activity>
         <activity
@@ -49,15 +49,15 @@
     android:label="@string/title_facebook_login" >
 </activity>
         <activity
-            android:name=".Playlist"
+            android:name="activities.Playlist"
             android:label="@string/title_activity_playlist" >
         </activity>
         <activity
-            android:name=".Resultado"
+            android:name="activities.Resultado"
             android:label="@string/title_activity_resultado" >
         </activity>
         <activity
-            android:name=".ResumenActivity"
+            android:name="activities.ResumenActivity"
             android:label="@string/title_activity_resumen" >
         </activity>
         <meta-data android:value="@string/facebook_app_id" android:name="com.facebook.sdk.ApplicationId"/>
