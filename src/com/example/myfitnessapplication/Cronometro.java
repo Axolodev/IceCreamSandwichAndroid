@@ -8,6 +8,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -149,4 +152,24 @@ public class Cronometro extends Activity {
 		Deporte deporte = new Deporte(deporteselec, date, calorias, tiempo);
 		dao.addDeporte(deporte);
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.conf:
+			Intent confi=new Intent(Cronometro.this, Configuracion.class);
+			startActivity(confi);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+	
 }

@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button3"
-        android:text="Configuración" />
+        android:text="Resumen" />
 
     <Button
         android:id="@+id/button5"

@@ -4,15 +4,19 @@ package com.example.myfitnessapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
 	Button medicion;
 	Button historial;
-	Button configuracion;
+	Button resumen;
 	Button videos;
 
 	@Override
@@ -21,7 +25,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		medicion=(Button)findViewById(R.id.button1);
 		historial=(Button)findViewById(R.id.button3);
-		configuracion=(Button)findViewById(R.id.button4);
+		resumen=(Button)findViewById(R.id.button4);
 		videos=(Button)findViewById(R.id.button5);
 		
 		medicion.setOnClickListener(new OnClickListener(){
@@ -38,10 +42,10 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		configuracion.setOnClickListener(new OnClickListener(){
+		resumen.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				Intent confi=new Intent(MainActivity.this, Configuracion.class);
-				startActivity(confi);
+				Intent res=new Intent(MainActivity.this, ResumenActivity.class);
+				startActivity(res);
 			}
 		});
 		
@@ -52,6 +56,28 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.conf:
+			Intent confi=new Intent(MainActivity.this, Configuracion.class);
+			startActivity(confi);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	
+	
 /*
 	@Override
 	protected void onResume() {
