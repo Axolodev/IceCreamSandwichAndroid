@@ -18,7 +18,6 @@ public class Medicion extends Activity {
 	RadioGroup deporte;
 	Button iniciar;
 	String deporteSeleccionado;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,14 +25,14 @@ public class Medicion extends Activity {
 		deporte=(RadioGroup)findViewById(R.id.radioDeporte);
 		iniciar=(Button)findViewById(R.id.button2);
 		iniciar.setOnClickListener(new OnClickListener(){
-
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				int selectedId = deporte.getCheckedRadioButtonId();
 				actividad = (RadioButton) findViewById(selectedId);
 				deporteSeleccionado= actividad.getText().toString();
-				Toast.makeText(getApplicationContext(), "deporte:" + deporteSeleccionado, Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "deporte: " + deporteSeleccionado, Toast.LENGTH_LONG).show();
 				Intent dep=new Intent(Medicion.this, Cronometro.class);
 				dep.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				dep.putExtra("deporte", deporteSeleccionado);

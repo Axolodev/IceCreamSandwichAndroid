@@ -20,6 +20,7 @@ public class Cronometro extends Activity {
 	double tiempo;
 	String deporteselec;
 	double calorias;
+	int peso, altura;
 
 	Calendar c = Calendar.getInstance();
 
@@ -35,6 +36,13 @@ public class Cronometro extends Activity {
 		reiniciar = (Button) findViewById(R.id.button4);
 		guardar = (Button) findViewById(R.id.button3);
 		playlist = (Button) findViewById(R.id.button5);
+		//LISTO PARA QUE USEN LOS DATOS EN EL CALCULO:
+		//
+		peso= Prefereces.getPeso(this);
+		altura= Prefereces.getAltura(this);
+		//LOS VALORES DEFAULT SE PUEDEN MODIFICAR EN LA CLASE Prefereces.java
+		//
+		
 		Bundle datos = getIntent().getExtras();
 		if (datos != null) {
 			deporteselec = datos.getString("deporte");

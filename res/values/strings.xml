@@ -20,6 +20,9 @@
     <string name="calorias_quemadas">Calorias Quemadas</string>
     <string name="facebook_app_id">409671882516646"</string>
     <string name="title_facebook_login">myFacebookLogin</string>
+    <string name="peso_tag">Peso:</string>
+    <string name="altura_tag">Altura:</string>
+    <string name="guardar_but_tag">Guardar</string>
 
 
 </resources>

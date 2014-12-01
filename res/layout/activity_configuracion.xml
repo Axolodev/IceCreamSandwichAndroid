@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:text="Altura"
+        android:text="@string/altura_tag"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -21,62 +21,46 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="20dp"
-        android:text="Peso"
+        android:text="@string/peso_tag"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/guardar_conf_button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/peso_val2"
         android:layout_marginRight="48dp"
-        android:text="Guardar" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="40dp"
-        android:text="Cancelar" />
+        android:layout_toRightOf="@+id/textView1"
+        android:text="@string/guardar_but_tag" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/altura_val1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignTop="@+id/textView2"
-        android:ems="10"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button2"
+        android:layout_alignLeft="@+id/guardar_conf_button1"
         android:layout_alignTop="@+id/textView1"
         android:ems="10"
-        android:inputType="phone" />
-    
-   
+        android:inputType="text" >
 
-    <LinearLayout
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/peso_val2"
         android:layout_width="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_height="250px"
-        android:orientation="vertical" >
- <com.facebook.widget.LoginButton
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/altura_val1"
+        android:ems="10"
+        android:inputType="text" />
+
+    <com.facebook.widget.LoginButton
         android:id="@+id/authButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        />
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="135dp"
+        android:layout_toRightOf="@+id/textView1" />
 
 </RelativeLayout>
