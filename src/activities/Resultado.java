@@ -64,14 +64,15 @@ public class Resultado extends Activity {
 
 		buMenu.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				/**Intent medi = new Intent(Resultado.this, MainActivity.class);
-				medi.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				medi.putExtra("deporte", deporteS);
-				medi.putExtra("calorias", calori);
-				medi.putExtra("tiempo", tiempoS);
+				/**
+				 * Intent medi = new Intent(Resultado.this, MainActivity.class);
+				 * medi.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				 * medi.putExtra("deporte", deporteS); medi.putExtra("calorias",
+				 * calori); medi.putExtra("tiempo", tiempoS);
+				 * 
+				 * startActivity(medi);
+				 **/
 
-				startActivity(medi);**/
-				
 				finish();
 			}
 		});

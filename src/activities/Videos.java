@@ -16,7 +16,6 @@ import com.example.myfitnessapplication.R;
 import com.example.myfitnessapplication.Video;
 import com.example.myfitnessapplication.VideoOperations;
 
-
 public class Videos extends Activity {
 
 	private final String DEPORTES[] = { "Correr", "Caminar", "Spinning",
@@ -30,11 +29,10 @@ public class Videos extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_videos);
 		VideoOperations dao;
-		dao=new VideoOperations(this);
+		dao = new VideoOperations(this);
 		dao.open();
-		Video video=new Video(1,"2", "3", "4");
+		Video video = new Video(1, "2", "3", "4");
 		dao.addVideo(video);
-
 
 		init();
 
@@ -59,7 +57,7 @@ public class Videos extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(Videos.this, Historial.class);
+				Intent intent = new Intent(Videos.this, ListaVideosActivity.class);
 				intent.putExtra("Deporte",
 						(String) spDeportes.getSelectedItem());
 				startActivity(intent);

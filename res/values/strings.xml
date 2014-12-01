@@ -27,6 +27,7 @@
     <string name="altura_tag">Altura:</string>
     <string name="buscar_videos">Buscar Videos</string>
     <string name="guardar_but_tag">Guardar</string>
-
+    <string name="title_activity_lista_videos">Lista de videos</string>
+    <string name="title_activity_player">Player</string>
 
 </resources>
