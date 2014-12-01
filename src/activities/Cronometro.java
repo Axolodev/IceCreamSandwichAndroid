@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Toast;
 
 import com.example.myfitnessapplication.Deporte;
 import com.example.myfitnessapplication.DeporteOperations;
@@ -25,7 +26,7 @@ public class Cronometro extends Activity {
 	Button iniciar, detener, reiniciar, guardar, playlist;
 	long timeWhenStopped = 0;
 	DeporteOperations dao;
-	double tiempo;
+	long tiempo, segundos, minutos, horas;
 	String deporteselec;
 	double calorias;
 	int peso, altura;
@@ -75,6 +76,10 @@ public class Cronometro extends Activity {
 				timeWhenStopped = focus.getBase()
 						- SystemClock.elapsedRealtime();
 				focus.stop();
+tiempo=SystemClock.elapsedRealtime() - focus.getBase(); 
+				horas=tiempo/3600000;
+				minutos=(tiempo%3600000)/60000;
+				segundos=((tiempo%3600000)%60000)/1000;
 			}
 		});
 		reiniciar.setOnClickListener(new View.OnClickListener() {
@@ -91,13 +96,17 @@ public class Cronometro extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				timeWhenStopped = (SystemClock.elapsedRealtime() - focus
-						.getBase()) / 1000 /*
+				timeWhenStopped = SystemClock.elapsedRealtime() - focus
+						.getBase(); /*
 											 * <- VALOR PARA PROBAR // 60000 <-
 											 * VALOR CORRECTO.
 											 */;
 				focus.stop();
-				tiempo = (double) timeWhenStopped;
+				//tiempo = (double) timeWhenStopped;
+tiempo=SystemClock.elapsedRealtime() - focus.getBase(); 
+				horas=tiempo/3600000;
+				minutos=(tiempo%3600000)/60000;
+				segundos=((tiempo%3600000)%60000)/1000;
 				if (deporteselec.equals("Correr")) {
 					calorias = (70 * 2.2) * tiempo * .142;
 
@@ -123,7 +132,10 @@ public class Cronometro extends Activity {
 
 				Intent guarda = new Intent(Cronometro.this, Resultado.class);
 				guarda.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				guarda.putExtra("tiempo", timeWhenStopped);
+guarda.putExtra("segundos", segundos);
+				 guarda.putExtra("minutos", minutos);
+				 guarda.putExtra("horas", horas);
+				//guarda.putExtra("tiempo", timeWhenStopped);
 				guarda.putExtra("deporte", deporteselec);
 				guarda.putExtra("calorias", calorias);
 				startActivity(guarda);
