@@ -34,4 +34,22 @@
         
         android:text="Buscar" />
 
+    <Button
+        android:id="@+id/buHistorialRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:text="@string/anteriores_diez" />
+
+    <Button
+        android:id="@+id/buHistorialAvanzar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buHistorialRegresar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="28dp"
+        android:text="@string/siguientes_diez" />
+
 </RelativeLayout>

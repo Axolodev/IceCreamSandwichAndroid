@@ -14,15 +14,13 @@
     <string name="deporte_tag">Deporte</string>
     <string name="fecha_tag">Fecha</string>
     <string name="calorias_tag">Calorias</string>
-    <string name="title_activity_resumen">ResumenActivity</string>
-    <string name="general">Resumen</string>
-    <string name="tiempo">Tiempo Total</string>
-    <string name="calorias_quemadas">Calorias Quemadas</string>
     <string name="facebook_app_id">409671882516646"</string>
     <string name="title_facebook_login">myFacebookLogin</string>
+    <string name="que_deporte_deseas">¿Qué deporte deseas hacer?</string>
+    <string name="siguientes_diez">10 siguientes</string>
+    <string name="anteriores_diez">10 anteriores</string>
     <string name="peso_tag">Peso:</string>
     <string name="altura_tag">Altura:</string>
     <string name="guardar_but_tag">Guardar</string>
-
 
 </resources>
