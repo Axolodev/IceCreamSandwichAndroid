@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-  
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -12,6 +11,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="54dp"
         android:layout_toRightOf="@+id/textView1"
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
         android:text="Iniciar" />
 
     <TextView
@@ -31,8 +35,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/button2"
         android:layout_marginLeft="20dp"
-         android:checkedButton="@+id/radioButton1"
-        android:layout_marginTop="28dp" >
+        android:layout_marginTop="28dp"
+        android:checkedButton="@+id/radioButton1" >
 
         <RadioButton
             android:id="@+id/radioButton1"

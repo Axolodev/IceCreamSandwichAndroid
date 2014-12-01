@@ -3,14 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
-    
-     <Button
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Medición" />
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Medición"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button3"
@@ -18,7 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button1"
-        android:text="Historial" />
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Historial"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button4"
@@ -26,7 +36,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button3"
-        android:text="Resumen" />
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Resumen"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button5"
@@ -34,12 +49,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button4"
-        android:text="Videos" />
+        android:text="Videos"
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_alignBottom="@+id/button5"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"

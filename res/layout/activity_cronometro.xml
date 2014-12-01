@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-
     <Chronometer
         android:id="@+id/chronometer1"
         android:layout_width="wrap_content"
@@ -21,7 +20,13 @@
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
         android:layout_alignLeft="@+id/button4"
-        android:text="Detener" />
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:text="Detener"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button5"
@@ -29,8 +34,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button4"
+        android:layout_margin="7dp"
         android:layout_marginTop="26dp"
-        android:text="PlayList" />
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="PlayList"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button1"
@@ -38,17 +48,27 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button3"
         android:layout_centerVertical="true"
-        android:text="Iniciar" />
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Iniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
+        android:layout_margin="7dp"
         android:layout_marginRight="31dp"
         android:layout_marginTop="22dp"
         android:layout_toLeftOf="@+id/chronometer1"
-        android:text="Guardar" />
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Guardar"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button4"
@@ -57,8 +77,12 @@
         android:layout_alignBaseline="@+id/button3"
         android:layout_alignBottom="@+id/button3"
         android:layout_alignParentRight="true"
+        android:layout_margin="7dp"
         android:layout_marginRight="21dp"
-        android:text="Reiniciar" />
-    
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Reiniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
 </RelativeLayout>

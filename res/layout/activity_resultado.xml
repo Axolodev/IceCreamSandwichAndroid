@@ -57,6 +57,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
         android:text="Menú Principal" 
         />
 

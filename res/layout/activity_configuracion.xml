@@ -26,13 +26,18 @@
 
     <Button
         android:id="@+id/guardar_conf_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/peso_val2"
         android:layout_marginRight="48dp"
         android:layout_toRightOf="@+id/textView1"
-        android:text="@string/guardar_but_tag" />
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        
+        android:text="@string/guardar_but_tag"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
     <EditText
         android:id="@+id/altura_val1"

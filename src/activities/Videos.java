@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.myfitnessapplication.R;
@@ -23,7 +23,7 @@ public class Videos extends Activity {
 			"Baloncesto", "Futbol", "Natacion", "Atletismo" };
 
 	private Spinner spDeportes;
-	private ImageButton ibBuscar;
+	private Button ibBuscar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class Videos extends Activity {
 		List<String> myList = Arrays.asList(DEPORTES);
 
 		spDeportes = (Spinner) findViewById(R.id.spiSeleccionDeporte);
-		ibBuscar = (ImageButton) findViewById(R.id.ibVideosBuscar);
+		ibBuscar = (Button) findViewById(R.id.buBuscarVideos);
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_dropdown_item, myList);

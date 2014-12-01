@@ -21,14 +21,17 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true" />
 
-    <ImageButton
-        android:id="@+id/ibVideosBuscar"
-        android:contentDescription="@null"
+    <Button
+        android:id="@+id/buBuscarVideos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/spiSeleccionDeporte"
-        android:layout_marginTop="24dp"
-        android:layout_toRightOf="@+id/textView1"
-        android:src="@drawable/ic_launcher" />
+        android:layout_margin="7dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:text="@string/buscar_videos" />
 
 </RelativeLayout>
