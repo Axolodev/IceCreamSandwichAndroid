@@ -16,5 +16,6 @@
     <string name="calorias_tag">Calorias</string>
     <string name="facebook_app_id">409671882516646"</string>
     <string name="title_facebook_login">myFacebookLogin</string>
+    <string name="que_deporte_deseas">¿Qué deporte deseas hacer?</string>
 
 </resources>
