@@ -11,25 +11,24 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="58dp"
-        android:text="¿Qué deseas ejercitar?"
+        android:text="@string/que_deporte_deseas"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
+    <Spinner
+        android:id="@+id/spiSeleccionDeporte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginRight="38dp"
-        android:layout_marginTop="20dp"
-        android:layout_toLeftOf="@+id/imageButton1" />
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/ibVideosBuscar"
+        android:contentDescription="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker1"
+        android:layout_below="@+id/spiSeleccionDeporte"
+        android:layout_marginTop="24dp"
         android:layout_toRightOf="@+id/textView1"
         android:src="@drawable/ic_launcher" />
-    
 
 </RelativeLayout>

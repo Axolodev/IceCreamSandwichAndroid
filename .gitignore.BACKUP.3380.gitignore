@@ -23,6 +23,8 @@ local.properties
 proguard/
 
 # Log Files
+<<<<<<< HEAD
 *.log
-
-project.properties
+=======
+*.log
+>>>>>>> origin/RBranch
