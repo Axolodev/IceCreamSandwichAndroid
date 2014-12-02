@@ -8,8 +8,7 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
-    <permission android:name="android.permission.INTERNET" >
-    </permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
