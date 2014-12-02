@@ -103,8 +103,8 @@ tiempo=SystemClock.elapsedRealtime() - focus.getBase();
 											 * VALOR CORRECTO.
 											 */;
 				focus.stop();
-				tiempo2 = (double) timeWhenStopped;
-tiempo=SystemClock.elapsedRealtime() - focus.getBase()/1000; 
+				tiempo2 = (double) (timeWhenStopped;
+tiempo=SystemClock.elapsedRealtime() - focus.getBase())/1000; 
 				horas=tiempo/3600000;
 				minutos=(tiempo%3600000)/60000;
 				segundos=((tiempo%3600000)%60000)/1000;
