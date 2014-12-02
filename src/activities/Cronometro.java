@@ -27,7 +27,6 @@ public class Cronometro extends Activity {
 	long timeWhenStopped = 0;
 	DeporteOperations dao;
 	long tiempo, segundos, minutos, horas;
-	double tiempo2;
 	String deporteselec;
 	double calorias;
 	int peso, altura;
@@ -103,8 +102,8 @@ tiempo=SystemClock.elapsedRealtime() - focus.getBase();
 											 * VALOR CORRECTO.
 											 */;
 				focus.stop();
-				tiempo2 = (double) (timeWhenStopped;
-tiempo=SystemClock.elapsedRealtime() - focus.getBase())/1000; 
+				//tiempo = (double) timeWhenStopped;
+tiempo=SystemClock.elapsedRealtime() - focus.getBase(); 
 				horas=tiempo/3600000;
 				minutos=(tiempo%3600000)/60000;
 				segundos=((tiempo%3600000)%60000)/1000;
@@ -129,7 +128,7 @@ tiempo=SystemClock.elapsedRealtime() - focus.getBase())/1000;
 					calorias = (70 * 2.2) * tiempo * .142;
 
 				}
-				newDeporte(v);
+				//newDeporte(v);
 
 				Intent guarda = new Intent(Cronometro.this, Resultado.class);
 				guarda.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -167,7 +166,7 @@ guarda.putExtra("segundos", segundos);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String date = sdf.format(new Date());
 
-		Deporte deporte = new Deporte(deporteselec, date, calorias, tiempo2);
+		Deporte deporte = new Deporte(deporteselec, date, calorias, tiempo);
 		dao.addDeporte(deporte);
 	}
 	

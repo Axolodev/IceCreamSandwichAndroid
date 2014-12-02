@@ -21,9 +21,9 @@
     <string name="siguientes_diez">10 siguientes</string>
     <string name="anteriores_diez">10 anteriores</string>
     <string name="peso_tag">Peso:</string>
-    <string name="general">PLACEHOLDER</string>
-    <string name="tiempo">PLACEHOLDER</string>
-    <string name="calorias_quemadas">PLACEHOLDER</string>
+    <string name="general">Resumen</string>
+    <string name="tiempo">Tiempo de ejercicio</string>
+    <string name="calorias_quemadas">Calorias Quemadas</string>
     <string name="altura_tag">Altura:</string>
     <string name="buscar_videos">Buscar Videos</string>
     <string name="guardar_but_tag">Guardar</string>

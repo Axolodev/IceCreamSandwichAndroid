@@ -32,7 +32,11 @@ public class ResumenActivity extends Activity {
 			}
 
 		}
-		duracion.setText(String.valueOf(duracionSum));
+		int hr,min,sec;
+		hr=(int)duracionSum/3600;
+		min=(int)(duracionSum%3600)/60;
+		sec=(int)((duracionSum%3600)%60);
+		duracion.setText(String.valueOf(hr)+":"+String.valueOf(min)+":"+String.valueOf(sec));
 		calorias.setText(String.valueOf(caloriasSum));
 	}
 }

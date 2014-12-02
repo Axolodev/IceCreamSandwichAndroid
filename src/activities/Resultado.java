@@ -3,6 +3,8 @@ package activities;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myfitnessapplication.Deporte;
+import com.example.myfitnessapplication.DeporteOperations;
 import com.example.myfitnessapplication.R;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.FacebookDialog;
@@ -28,6 +32,8 @@ public class Resultado extends Activity {
 	//Button menu;
 	Long calori=(long) 1;
 	TextView calorias,deporte,tiempo;//3 tiempo,4 calorias,6 deporte
+	DeporteOperations dao;
+	
 
 
 	//TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
@@ -42,6 +48,8 @@ public class Resultado extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_resultado);
 		buMenu = (Button) findViewById(R.id.button1);
+		dao = new DeporteOperations(this);
+		dao.open();
 		/*tvCalorias = (TextView) findViewById(R.id.textView4);
 		tvDeporte = (TextView) findViewById(R.id.textView6);
 		tvTiempo = (TextView) findViewById(R.id.textView3);
@@ -122,6 +130,11 @@ calorias=(TextView)findViewById(R.id.textView4);
 	}
 		String caloriasF=String.valueOf(calori);
 		calorias.setText(caloriasF);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		String date = sdf.format(new Date());
+
+		Deporte deporte = new Deporte(deporteF, date, calori, tiempoS+tiempomin*60+tiempohr*3600);
+		dao.addDeporte(deporte);
 		/*menu.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				Intent medi=new Intent(Resultado.this, MainActivity.class);
