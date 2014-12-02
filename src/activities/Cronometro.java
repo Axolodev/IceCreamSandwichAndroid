@@ -45,13 +45,13 @@ public class Cronometro extends Activity {
 		reiniciar = (Button) findViewById(R.id.button4);
 		guardar = (Button) findViewById(R.id.button3);
 		playlist = (Button) findViewById(R.id.button5);
-		//LISTO PARA QUE USEN LOS DATOS EN EL CALCULO:
+		// LISTO PARA QUE USEN LOS DATOS EN EL CALCULO:
 		//
-		peso= Preferences.getPeso(this);
-		altura= Preferences.getAltura(this);
-		//LOS VALORES DEFAULT SE PUEDEN MODIFICAR EN LA CLASE Prefereces.java
+		peso = Preferences.getPeso(this);
+		altura = Preferences.getAltura(this);
+		// LOS VALORES DEFAULT SE PUEDEN MODIFICAR EN LA CLASE Prefereces.java
 		//
-		
+
 		Bundle datos = getIntent().getExtras();
 		if (datos != null) {
 			deporteselec = datos.getString("deporte");
@@ -76,10 +76,10 @@ public class Cronometro extends Activity {
 				timeWhenStopped = focus.getBase()
 						- SystemClock.elapsedRealtime();
 				focus.stop();
-tiempo=SystemClock.elapsedRealtime() - focus.getBase(); 
-				horas=tiempo/3600000;
-				minutos=(tiempo%3600000)/60000;
-				segundos=((tiempo%3600000)%60000)/1000;
+				tiempo = SystemClock.elapsedRealtime() - focus.getBase();
+				horas = tiempo / 3600000;
+				minutos = (tiempo % 3600000) / 60000;
+				segundos = ((tiempo % 3600000) % 60000) / 1000;
 			}
 		});
 		reiniciar.setOnClickListener(new View.OnClickListener() {
@@ -96,17 +96,18 @@ tiempo=SystemClock.elapsedRealtime() - focus.getBase();
 
 			@Override
 			public void onClick(View v) {
-				timeWhenStopped = SystemClock.elapsedRealtime() - focus
-						.getBase(); /*
+				timeWhenStopped = SystemClock.elapsedRealtime()
+						- focus.getBase(); /*
 											 * <- VALOR PARA PROBAR // 60000 <-
 											 * VALOR CORRECTO.
-											 */;
+											 */
+				;
 				focus.stop();
-				//tiempo = (double) timeWhenStopped;
-tiempo=SystemClock.elapsedRealtime() - focus.getBase(); 
-				horas=tiempo/3600000;
-				minutos=(tiempo%3600000)/60000;
-				segundos=((tiempo%3600000)%60000)/1000;
+				// tiempo = (double) timeWhenStopped;
+				tiempo = SystemClock.elapsedRealtime() - focus.getBase();
+				horas = tiempo / 3600000;
+				minutos = (tiempo % 3600000) / 60000;
+				segundos = ((tiempo % 3600000) % 60000) / 1000;
 				if (deporteselec.equals("Correr")) {
 					calorias = (70 * 2.2) * tiempo * .142;
 
@@ -128,14 +129,14 @@ tiempo=SystemClock.elapsedRealtime() - focus.getBase();
 					calorias = (70 * 2.2) * tiempo * .142;
 
 				}
-				//newDeporte(v);
+				// newDeporte(v);
 
 				Intent guarda = new Intent(Cronometro.this, Resultado.class);
 				guarda.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-guarda.putExtra("segundos", segundos);
-				 guarda.putExtra("minutos", minutos);
-				 guarda.putExtra("horas", horas);
-				//guarda.putExtra("tiempo", timeWhenStopped);
+				guarda.putExtra("segundos", segundos);
+				guarda.putExtra("minutos", minutos);
+				guarda.putExtra("horas", horas);
+				// guarda.putExtra("tiempo", timeWhenStopped);
 				guarda.putExtra("deporte", deporteselec);
 				guarda.putExtra("calorias", calorias);
 				startActivity(guarda);
@@ -169,7 +170,7 @@ guarda.putExtra("segundos", segundos);
 		Deporte deporte = new Deporte(deporteselec, date, calorias, tiempo);
 		dao.addDeporte(deporte);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater menuInflater = getMenuInflater();
@@ -181,12 +182,12 @@ guarda.putExtra("segundos", segundos);
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.conf:
-			Intent confi=new Intent(Cronometro.this, Configuracion.class);
+			Intent confi = new Intent(Cronometro.this, Configuracion.class);
 			startActivity(confi);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
-	
+
 }
