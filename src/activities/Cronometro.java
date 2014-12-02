@@ -97,11 +97,7 @@ public class Cronometro extends Activity {
 			@Override
 			public void onClick(View v) {
 				timeWhenStopped = SystemClock.elapsedRealtime()
-						- focus.getBase(); /*
-											 * <- VALOR PARA PROBAR // 60000 <-
-											 * VALOR CORRECTO.
-											 */
-				;
+						- focus.getBase(); 				;
 				focus.stop();
 				// tiempo = (double) timeWhenStopped;
 				tiempo = SystemClock.elapsedRealtime() - focus.getBase();
