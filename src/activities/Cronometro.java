@@ -105,24 +105,24 @@ public class Cronometro extends Activity {
 				minutos = (tiempo % 3600000) / 60000;
 				segundos = ((tiempo % 3600000) % 60000) / 1000;
 				if (deporteselec.equals("Correr")) {
-					calorias = (70 * 2.2) * tiempo * .142;
+					calorias = (peso * 2.2) * tiempo * .142;
 
 				} else if (deporteselec.equals("Spinning")) {
-					calorias = (70 * 2.2) * tiempo * .053;
+					calorias = (peso * 2.2) * tiempo * .053;
 				} else if (deporteselec.equals("Caminar")) {
-					calorias = (70 * 2.2) * tiempo * .062;
+					calorias = (peso * 2.2) * tiempo * .062;
 
 				} else if (deporteselec.equals("Baloncesto")) {
-					calorias = (70 * 2.2) * tiempo * .045;
+					calorias = (peso * 2.2) * tiempo * .045;
 
 				} else if (deporteselec.equals("Futbol")) {
-					calorias = (70 * 2.2) * tiempo * .061;
+					calorias = (peso * 2.2) * tiempo * .061;
 
 				} else if (deporteselec.equals("Natacion")) {
-					calorias = (70 * 2.2) * tiempo * .142;
+					calorias = (peso * 2.2) * tiempo * .142;
 
 				} else if (deporteselec.equals("Atletismo")) {
-					calorias = (70 * 2.2) * tiempo * .142;
+					calorias = (peso * 2.2) * tiempo * .142;
 
 				}
 				// newDeporte(v);
