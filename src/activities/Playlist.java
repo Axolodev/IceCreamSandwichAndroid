@@ -1,91 +1,136 @@
 package activities;
 
-import java.io.IOException;
-
+import java.util.concurrent.TimeUnit;
 import android.app.Activity;
-import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
+import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import com.example.myfitnessapplication.R;
+import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Playlist extends Activity {
-	private String[] mAudioPath;
-	private MediaPlayer mMediaPlayer;
-	private String[] mMusicList;
-
-
+	  public TextView songName,startTimeField,endTimeField;
+	   private MediaPlayer mediaPlayer;
+	   private double startTime = 0;
+	   private double finalTime = 0;
+	   private Handler myHandler = new Handler();;
+	   private int forwardTime = 5000; 
+	   private int backwardTime = 5000;
+	   private SeekBar seekbar;
+	   private ImageButton playButton,pauseButton;
+	   public static int oneTimeOnly = 0;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_playlist);
+	    songName = (TextView)findViewById(R.id.textView4);
+	      startTimeField =(TextView)findViewById(R.id.textView1);
+	      endTimeField =(TextView)findViewById(R.id.textView2);
+	      seekbar = (SeekBar)findViewById(R.id.seekBar1);
+	      playButton = (ImageButton)findViewById(R.id.imageButton1);
+	      pauseButton = (ImageButton)findViewById(R.id.imageButton2);
+	      songName.setText("song.mp3");
+	      mediaPlayer = MediaPlayer.create(this, R.raw.song);
+	      seekbar.setClickable(false);
+	      pauseButton.setEnabled(false);
 
-	    mMediaPlayer = new MediaPlayer();
 
-	    ListView mListView = (ListView) findViewById(R.id.listView1);
+	   // ListView mListView = (ListView) findViewById(R.id.listView1);
 
-	    mMusicList = getAudioList();
-
-	    ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this,
-	    android.R.layout.simple_list_item_1, mMusicList);
-	    mListView.setAdapter(mAdapter);
-
-	    mListView.setOnItemClickListener(new OnItemClickListener() {
-
-	    @Override
-	    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-	    long arg3) {
-	    try {
-	        playSong(mAudioPath[arg2]);
-	    } catch (IllegalArgumentException e) {
-	        e.printStackTrace();
-	    } catch (IllegalStateException e) {
-	        e.printStackTrace();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	    }
-	   });
 	}
+	public void play(View view){
+		   Toast.makeText(getApplicationContext(), "Playing sound", 
+		   Toast.LENGTH_SHORT).show();
+		      mediaPlayer.start();
+		      finalTime = mediaPlayer.getDuration();
+		      startTime = mediaPlayer.getCurrentPosition();
+		      if(oneTimeOnly == 0){
+		         seekbar.setMax((int) finalTime);
+		         oneTimeOnly = 1;
+		      } 
 
-	private String[] getAudioList() {
-	    final Cursor mCursor = getContentResolver().query(
-	            MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
-	            new String[] { MediaStore.Audio.Media.DISPLAY_NAME, MediaStore.Audio.Media.DATA }, null, null,
-	            "LOWER(" + MediaStore.Audio.Media.TITLE + ") ASC");
+		      endTimeField.setText(String.format("%d min, %d sec", 
+		         TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
+		         TimeUnit.MILLISECONDS.toSeconds((long) finalTime) - 
+		         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+		         toMinutes((long) finalTime)))
+		      );
+		      startTimeField.setText(String.format("%d min, %d sec", 
+		         TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+		         TimeUnit.MILLISECONDS.toSeconds((long) startTime) - 
+		         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+		         toMinutes((long) startTime)))
+		      );
+		      seekbar.setProgress((int)startTime);
+		      myHandler.postDelayed(UpdateSongTime,100);
+		      pauseButton.setEnabled(true);
+		      playButton.setEnabled(false);
+		   }
 
-	    int count = mCursor.getCount();
+		   private Runnable UpdateSongTime = new Runnable() {
+		      public void run() {
+		         startTime = mediaPlayer.getCurrentPosition();
+		         startTimeField.setText(String.format("%d min, %d sec", 
+		            TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+		            TimeUnit.MILLISECONDS.toSeconds((long) startTime) - 
+		            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+		            toMinutes((long) startTime)))
+		         );
+		         seekbar.setProgress((int)startTime);
+		         myHandler.postDelayed(this, 100);
+		      }
+		   };
+		   public void pause(View view){
+		      Toast.makeText(getApplicationContext(), "Pausing sound", 
+		      Toast.LENGTH_SHORT).show();
 
-	    String[] songs = new String[count];
-	    String[] mAudioPath = new String[count];
-	    int i = 0;
-	    if (mCursor.moveToFirst()) {
-	        do {
-	            songs[i] = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME));
-	            mAudioPath[i] = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
-	            i++;
-	        } while (mCursor.moveToNext());
-	    }   
+		      mediaPlayer.pause();
+		      pauseButton.setEnabled(false);
+		      playButton.setEnabled(true);
+		   }	
+		   public void forward(View view){
+		      int temp = (int)startTime;
+		      if((temp+forwardTime)<=finalTime){
+		         startTime = startTime + forwardTime;
+		         mediaPlayer.seekTo((int) startTime);
+		      }
+		      else{
+		         Toast.makeText(getApplicationContext(), 
+		         "Cannot jump forward 5 seconds", 
+		         Toast.LENGTH_SHORT).show();
+		      }
 
-	    mCursor.close();
+		   }
+		   public void rewind(View view){
+		      int temp = (int)startTime;
+		      if((temp-backwardTime)>0){
+		         startTime = startTime - backwardTime;
+		         mediaPlayer.seekTo((int) startTime);
+		      }
+		      else{
+		         Toast.makeText(getApplicationContext(), 
+		         "Cannot jump backward 5 seconds",
+		         Toast.LENGTH_SHORT).show();
+		      }
 
-	    return songs;
+		   }
+
+		  
+		 /*  public boolean onCreateOptionsMenu(Menu menu) {
+		   // Inflate the menu; this adds items to the action bar if it is present.
+			   MenuInflater menuInflater=getMenuInflater();
+			   menuInflater.inflate(R.menu.menu_uno, menu);
+		  
+		   /*
+		    * 		MenuInflater menuInflater=getMenuInflater();
+		menuInflater.inflate(R.menu.menu_uno, menu);
+		    * 
+		   return true;
+		   }*/
+
 	}
-private void playSong(String path) throws IllegalArgumentException,
-IllegalStateException, IOException {
-
-Log.d("ringtone", "playSong :: " + path);
-
-mMediaPlayer.reset();
-mMediaPlayer.setDataSource(path);       
-//mMediaPlayer.setLooping(true);
-mMediaPlayer.prepare();
-mMediaPlayer.start();
-}}
