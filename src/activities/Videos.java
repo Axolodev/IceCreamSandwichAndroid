@@ -4,13 +4,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.myfitnessapplication.R;
 import com.example.myfitnessapplication.Video;
@@ -57,12 +61,27 @@ public class Videos extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
+				if(isOnline()){
 				Intent intent = new Intent(Videos.this, ListaVideosActivity.class);
 				intent.putExtra("Deporte",
 						(String) spDeportes.getSelectedItem());
 				startActivity(intent);
+				}
+				else
+				{
+					Toast.makeText(getApplicationContext(), "No Tienes Conexión a Internet", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 
+	}
+	
+	public boolean isOnline() {
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+			return true;
+		}
+		return false;
 	}
 }
