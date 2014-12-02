@@ -6,6 +6,7 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.Menu;
@@ -138,6 +139,8 @@ public class Cronometro extends Activity {
 				startActivity(guarda);
 				Cronometro.this.finish();
 
+				
+				
 				/*
 				 * Intent dep=new Intent(Medicion.this, Cronometro.class);
 				 * startActivity(dep);
