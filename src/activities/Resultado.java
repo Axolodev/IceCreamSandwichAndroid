@@ -59,6 +59,7 @@ public class Resultado extends Activity {
 			String tiempos = String.valueOf(tiempoS);
 			tvTiempo.setText(tiempos);
 		}*/
+		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
 calorias=(TextView)findViewById(R.id.textView4);
 		deporte=(TextView)findViewById(R.id.textView6);
 		String deporteF;
