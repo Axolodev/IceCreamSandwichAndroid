@@ -39,12 +39,12 @@ public class Cronometro extends Activity {
 		setContentView(R.layout.activity_cronometro);
 		dao = new DeporteOperations(this);
 		dao.open();
-		focus = (Chronometer) findViewById(R.id.chronometer1);
-		iniciar = (Button) findViewById(R.id.button1);
-		detener = (Button) findViewById(R.id.button2);
-		reiniciar = (Button) findViewById(R.id.button4);
-		guardar = (Button) findViewById(R.id.button3);
-		playlist = (Button) findViewById(R.id.button5);
+		focus = (Chronometer) findViewById(R.id.chronometer_final);
+		iniciar = (Button) findViewById(R.id.iniciar_bot);
+		detener = (Button) findViewById(R.id.stop_bot);
+		reiniciar = (Button) findViewById(R.id.reiniciar_bot);
+		guardar = (Button) findViewById(R.id.guardar_bot);
+		playlist = (Button) findViewById(R.id.playlist_bot);
 		// LISTO PARA QUE USEN LOS DATOS EN EL CALCULO:
 		//
 		peso = Preferences.getPeso(this);

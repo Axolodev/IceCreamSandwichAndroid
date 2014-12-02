@@ -4,36 +4,12 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <Chronometer
-        android:id="@+id/chronometer1"
+    <Button
+        android:id="@+id/playlist_bot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:text="Chronometer" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignLeft="@+id/button4"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#A81830"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:text="Detener"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button4"
+        android:layout_alignRight="@+id/reiniciar_bot"
         android:layout_margin="7dp"
         android:layout_marginTop="26dp"
         android:background="@drawable/buttonshape"
@@ -42,28 +18,23 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/button1"
+    <Chronometer
+        android:id="@+id/chronometer_final"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_centerVertical="true"
-        android:layout_margin="7dp"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#A81830"
-        android:text="Iniciar"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
+        android:layout_below="@+id/playlist_bot"
+        android:layout_centerHorizontal="true"
+        android:text="Chronometer"
+        android:textSize="80dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/guardar_bot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/iniciar_bot"
+        android:layout_below="@+id/iniciar_bot"
         android:layout_margin="7dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginTop="22dp"
-        android:layout_toLeftOf="@+id/chronometer1"
+        android:layout_marginTop="18dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A81830"
         android:text="Guardar"
@@ -71,17 +42,44 @@
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/reiniciar_bot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
+        android:layout_alignBaseline="@+id/guardar_bot"
+        android:layout_alignBottom="@+id/guardar_bot"
         android:layout_alignParentRight="true"
         android:layout_margin="7dp"
-        android:layout_marginRight="21dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A81830"
         android:text="Reiniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/iniciar_bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chronometer_final"
+        android:layout_margin="7dp"
+        android:layout_marginLeft="14dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:text="Iniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/stop_bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reiniciar_bot"
+        android:layout_alignLeft="@+id/playlist_bot"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A81830"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:text="Detener"
         android:textColor="#FFFFFF"
         android:textSize="15sp" />
 
