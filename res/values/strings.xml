@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">MyFitnessApplication</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Cancion: </string>
     <string name="title_activity_videos">Videos</string>
     <string name="title_activity_configuracion">Configuracion</string>
     <string name="title_activity_historial">Historial</string>
