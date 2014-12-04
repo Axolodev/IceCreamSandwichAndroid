@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.myfitnessapplication.Deporte;
 import com.example.myfitnessapplication.DeporteOperations;
+mport com.example.myfitnessapplication.Preferences;
 import com.example.myfitnessapplication.R;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.FacebookDialog;
@@ -33,6 +34,11 @@ public class Resultado extends Activity {
 	Long calori = (long) 1;
 	TextView calorias, deporte, tiempo;// 3 tiempo,4 calorias,6 deporte
 	DeporteOperations dao;
+<<<<<<< HEAD
+=======
+	int peso, altura;
+	
+>>>>>>> 9c750472b889bfa2b8ca93e6f3ce145f4e3ebcfd
 
 	// TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
 	// deporte
@@ -64,6 +70,7 @@ public class Resultado extends Activity {
 		 * String.valueOf(tiempoS); tvTiempo.setText(tiempos); }
 		 */
 		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
+<<<<<<< HEAD
 		calorias = (TextView) findViewById(R.id.textView4);
 		deporte = (TextView) findViewById(R.id.textView6);
 		String deporteF;
@@ -84,6 +91,10 @@ public class Resultado extends Activity {
 			e.printStackTrace();
 		}
 		deporteF = stringBuffer.toString();
+=======
+		peso = Preferences.getPeso(this);
+		altura = Preferences.getAltura(this);
+>>>>>>> 9c750472b889bfa2b8ca93e6f3ce145f4e3ebcfd
 
 		Bundle datos = getIntent().getExtras();
 		if (datos != null) {
@@ -135,6 +146,7 @@ calorias=(TextView)findViewById(R.id.textView4);
 
 		}
 		deporte.setText(deporteF);
+<<<<<<< HEAD
 		Toast.makeText(getApplicationContext(), "deporte:" + deporteF,
 				Toast.LENGTH_LONG).show();
 
@@ -166,6 +178,36 @@ calorias=(TextView)findViewById(R.id.textView4);
 			calori = (long) ((70 * 2.2) * (tiempomin + (tiempohr * 60)) * .142);
 		}
 		String caloriasF = String.valueOf(calori);
+=======
+		Toast.makeText(getApplicationContext(), "deporte:" + deporteF, Toast.LENGTH_LONG).show();
+	
+	if (deporteF.equals("Spinning")){
+		
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60)) * .053);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+	}
+	else if(deporteF.equals("Caminar")){
+		Toast.makeText(getApplicationContext(), "tiempo1:" + calori, Toast.LENGTH_LONG).show();
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .062);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	else if (deporteF.equals("Baloncesto")){
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60)) * .045);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	else if(deporteF.equals("Futbol")){
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .061);
+		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
+		
+	}
+	
+	else{
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .142);
+	}
+		String caloriasF=String.valueOf(calori);
+>>>>>>> 9c750472b889bfa2b8ca93e6f3ce145f4e3ebcfd
 		calorias.setText(caloriasF);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String date = sdf.format(new Date());
