@@ -80,7 +80,7 @@ calorias=(TextView)findViewById(R.id.textView4);
             String inputString;  
             //Reading data line by line and storing it into the stringbuffer                
             while ((inputString = inputReader.readLine()) != null) {  
-                stringBuffer.append(inputString + "\n");  
+                stringBuffer.append(inputString);  
             }  
               
         } catch (IOException e) {  
