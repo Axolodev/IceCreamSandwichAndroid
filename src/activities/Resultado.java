@@ -93,9 +93,46 @@ public class Resultado extends Activity {
 			tiempohr = datos.getLong("horas");
 
 			String tiempos = String.valueOf(tiempoS);
+
 			String hrs = String.valueOf(tiempohr);
 			String min = String.valueOf(tiempomin);
 			tiempo.setText(hrs + ":" + min + ":" + tiempos);
+
+			tvTiempo.setText(tiempos);
+		}*/
+		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
+calorias=(TextView)findViewById(R.id.textView4);
+		deporte=(TextView)findViewById(R.id.textView6);
+		String deporteF;
+		tiempo=(TextView)findViewById(R.id.textView3);
+		StringBuffer stringBuffer = new StringBuffer();    
+        try {  
+            //Attaching BufferedReader to the FileInputStream by the help of InputStreamReader  
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(  
+                    openFileInput("deporteSel")));  
+            String inputString;  
+            //Reading data line by line and storing it into the stringbuffer                
+            while ((inputString = inputReader.readLine()) != null) {  
+                stringBuffer.append(inputString);  
+            }  
+              
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        deporteF=stringBuffer.toString();
+		
+		Bundle datos=getIntent().getExtras();
+		if (datos!=null){
+			deporteS=datos.getString("deporte");
+			tiempoS=datos.getLong("segundos");
+			tiempomin=datos.getLong("minutos");
+			tiempohr=datos.getLong("horas");
+			
+			String tiempos=String.valueOf(tiempoS);
+			String hrs=String.valueOf(tiempohr);
+			String min=String.valueOf(tiempomin);
+			tiempo.setText(hrs+":"+min+":"+tiempos); 
+
 		}
 		deporte.setText(deporteF);
 		Toast.makeText(getApplicationContext(), "deporte:" + deporteF,
