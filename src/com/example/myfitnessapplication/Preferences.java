@@ -11,11 +11,11 @@ public class Preferences {
 
 
     public static int getPeso(Context context) {
-        return getPrefs(context).getInt("peso", 50);
+        return getPrefs(context).getInt("peso", 70);
     }
-    
+
     public static int getAltura(Context context) {
-        return getPrefs(context).getInt("altura", 500);
+        return getPrefs(context).getInt("altura", 2);
     }
 
     public static void setPeso(Context context, int value) {
