@@ -86,7 +86,7 @@
       android:layout_alignParentBottom="true"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/textView3"
-      android:src="@drawable/ic_launcher" />
+      android:src="@drawable/fitness" />
 
    <TextView
       android:id="@+id/textView4"
