@@ -31,10 +31,9 @@ public class Resultado extends Activity {
 	//private Double calori;
 	//Button menu;
 	Long calori=(long) 1;
-	double cal;
 	TextView calorias,deporte,tiempo;//3 tiempo,4 calorias,6 deporte
 	DeporteOperations dao;
-
+	
 
 
 	//TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
@@ -73,42 +72,39 @@ calorias=(TextView)findViewById(R.id.textView4);
 		deporte=(TextView)findViewById(R.id.textView6);
 		String deporteF;
 		tiempo=(TextView)findViewById(R.id.textView3);
-		StringBuffer stringBuffer = new StringBuffer();
-        try {
-            //Attaching BufferedReader to the FileInputStream by the help of InputStreamReader
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                    openFileInput("deporteSel")));
-            String inputString;
-            //Reading data line by line and storing it into the stringbuffer
-            while ((inputString = inputReader.readLine()) != null) {
-                stringBuffer.append(inputString + "\n");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		StringBuffer stringBuffer = new StringBuffer();    
+        try {  
+            //Attaching BufferedReader to the FileInputStream by the help of InputStreamReader  
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(  
+                    openFileInput("deporteSel")));  
+            String inputString;  
+            //Reading data line by line and storing it into the stringbuffer                
+            while ((inputString = inputReader.readLine()) != null) {  
+                stringBuffer.append(inputString + "\n");  
+            }  
+              
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
         deporteF=stringBuffer.toString();
-
+		
 		Bundle datos=getIntent().getExtras();
 		if (datos!=null){
 			deporteS=datos.getString("deporte");
 			tiempoS=datos.getLong("segundos");
 			tiempomin=datos.getLong("minutos");
 			tiempohr=datos.getLong("horas");
-			cal=datos.getDouble("calorias");
-			String caloriasF=String.valueOf(cal);
-		    calorias.setText(caloriasF);
-
+			
 			String tiempos=String.valueOf(tiempoS);
 			String hrs=String.valueOf(tiempohr);
 			String min=String.valueOf(tiempomin);
-			tiempo.setText(hrs+":"+min+":"+tiempos);
+			tiempo.setText(hrs+":"+min+":"+tiempos); 
 		}
 		deporte.setText(deporteF);
 		Toast.makeText(getApplicationContext(), "deporte:" + deporteF, Toast.LENGTH_LONG).show();
-
+	
 	if (deporteF.equals("Spinning")){
-
+		
 		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .053);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
 	}
@@ -116,24 +112,24 @@ calorias=(TextView)findViewById(R.id.textView4);
 		Toast.makeText(getApplicationContext(), "tiempo1:" + calori, Toast.LENGTH_LONG).show();
 		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .062);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
-
+		
 	}
 	else if (deporteF.equals("Baloncesto")){
 		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .045);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
-
+		
 	}
 	else if(deporteF.equals("Futbol")){
 		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .061);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
-
+		
 	}
-
+	
 	else{
 		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .142);
 	}
-		//String caloriasF=String.valueOf(calori);
-		//calorias.setText(caloriasF);
+		String caloriasF=String.valueOf(calori);
+		calorias.setText(caloriasF);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String date = sdf.format(new Date());
 
@@ -146,7 +142,7 @@ calorias=(TextView)findViewById(R.id.textView4);
 				medi.putExtra("deporte", deporteS);
 				medi.putExtra("calorias", calori);
 				medi.putExtra("tiempo", tiempoS);
-
+				
 				startActivity(medi);
 			}
 		});*/
@@ -174,10 +170,10 @@ calorias=(TextView)findViewById(R.id.textView4);
 				medi.putExtra("deporte", deporteS);
 				medi.putExtra("calorias", calori);
 				medi.putExtra("tiempo", tiempoS);
-
+				
 				startActivity(medi);
 
-
+				
 
 				finish();
 			}
