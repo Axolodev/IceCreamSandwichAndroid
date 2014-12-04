@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.myfitnessapplication.Deporte;
 import com.example.myfitnessapplication.DeporteOperations;
+mport com.example.myfitnessapplication.Preferences;
 import com.example.myfitnessapplication.R;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.FacebookDialog;
@@ -33,6 +34,7 @@ public class Resultado extends Activity {
 	Long calori=(long) 1;
 	TextView calorias,deporte,tiempo;//3 tiempo,4 calorias,6 deporte
 	DeporteOperations dao;
+	int peso, altura;
 	
 
 
@@ -54,6 +56,8 @@ public class Resultado extends Activity {
 		tvDeporte = (TextView) findViewById(R.id.textView6);
 		tvTiempo = (TextView) findViewById(R.id.textView3);
 		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
+		peso = Preferences.getPeso(this);
+		altura = Preferences.getAltura(this);
 
 		Bundle datos = getIntent().getExtras();
 		if (datos != null) {
@@ -105,28 +109,28 @@ calorias=(TextView)findViewById(R.id.textView4);
 	
 	if (deporteF.equals("Spinning")){
 		
-		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .053);
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60)) * .053);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
 	}
 	else if(deporteF.equals("Caminar")){
 		Toast.makeText(getApplicationContext(), "tiempo1:" + calori, Toast.LENGTH_LONG).show();
-		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .062);
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .062);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
 		
 	}
 	else if (deporteF.equals("Baloncesto")){
-		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60)) * .045);
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60)) * .045);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
 		
 	}
 	else if(deporteF.equals("Futbol")){
-		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .061);
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .061);
 		Toast.makeText(getApplicationContext(), "tiempo:" + calori, Toast.LENGTH_LONG).show();
 		
 	}
 	
 	else{
-		calori=(long) ((70 * 2.2) * (tiempomin+(tiempohr*60))* .142);
+		calori=(long) ((peso * 2.2) * (tiempomin+(tiempohr*60))* .142);
 	}
 		String caloriasF=String.valueOf(calori);
 		calorias.setText(caloriasF);
