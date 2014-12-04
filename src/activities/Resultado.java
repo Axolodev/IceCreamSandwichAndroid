@@ -34,11 +34,11 @@ public class Resultado extends Activity {
 	Long calori = (long) 1;
 	TextView calorias, deporte, tiempo;// 3 tiempo,4 calorias,6 deporte
 	DeporteOperations dao;
-<<<<<<< HEAD
-=======
+
+
 	int peso, altura;
 	
->>>>>>> 9c750472b889bfa2b8ca93e6f3ce145f4e3ebcfd
+
 
 	// TextView tvCalorias, tvDeporte, tvTiempo;// 3 tiempo,4 calorias,6
 	// deporte
@@ -70,7 +70,7 @@ public class Resultado extends Activity {
 		 * String.valueOf(tiempoS); tvTiempo.setText(tiempos); }
 		 */
 		buCompartirFace = (ImageButton) findViewById(R.id.buShareFacebook);
-<<<<<<< HEAD
+
 		calorias = (TextView) findViewById(R.id.textView4);
 		deporte = (TextView) findViewById(R.id.textView6);
 		String deporteF;
@@ -91,10 +91,10 @@ public class Resultado extends Activity {
 			e.printStackTrace();
 		}
 		deporteF = stringBuffer.toString();
-=======
+
 		peso = Preferences.getPeso(this);
 		altura = Preferences.getAltura(this);
->>>>>>> 9c750472b889bfa2b8ca93e6f3ce145f4e3ebcfd
+
 
 		Bundle datos = getIntent().getExtras();
 		if (datos != null) {
